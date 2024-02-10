@@ -1,0 +1,34 @@
+{
+  "name": "pierre",
+  "version": "1.0.0",
+  "description": "nina",
+  "main": "index.html",
+  "scripts": {
+    "test": "nina portfolio",
+    "css-max": "sass _scss/main.scss www/css/main.css",
+    "css-min": "sass -s compressed _scss/main.scss www/css/main.min.css ",
+    "js-min": "uglifyjs www/js/scripts.js -o www/js/scripts.min.js www/js/maugallery.js -o www/js/maugallery.min.js www/js/jquery-3.2.1.min.js -c -m --source-map",
+    "sync": "browser-sync start --server \"www\" --port 8080 --watch ",
+    "watch-scss": "nodemon --ext scss --exec \"npm run css-max && npm run css-min\" ",
+    "watch-js": "nodemon --ext js --ignore \"*.min.js\" --exec \"npm run js-min\" ",
+    "develop": "concurrently \"npm:sync\" \"npm:watch-*\" "
+  },
+  "keywords": [
+    "nina",
+    "portfolio"
+  ],
+  "author": "pierre",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "font-awesome": "^4.7.0",
+    "sass": "^1.62.1",
+    "uglify-js": "^3.15.1"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "browser-sync": "^2.27.7",
+    "concurrently": "^7.0.0",
+    "nodemon": "^3.0.3"
+  }
+}
